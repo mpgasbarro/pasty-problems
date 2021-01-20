@@ -1,25 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Home from './Home/Home';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const url1 = class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			apiUrl: {},
+		};
+	}
+
+	getUVIndex() {
+		var lat = $('#lat').val();
+		var lng = $('#lng').val();
+		var alt = $('#alt').val();
+		var ozone = $('#ozone').val();
+		var dt = $('#dt').val();
+
+		$.ajax({
+			type: 'GET',
+			dataType: 'json',
+			beforeSend: function (request) {
+				request.setRequestHeader(
+					'x-access-token',
+					'7469fa7008ca4c729b71acc469c72468'
+				);
+			},
+			url:
+				'https://api.openuv.io/api/v1/uv?lat=' +
+				lat +
+				'&lng=' +
+				lng +
+				'&alt=' +
+				alt +
+				'&ozone=' +
+				ozone +
+				'&dt=' +
+				dt,
+			success: function (response) {
+				//handle successful response
+			},
+			error: function (response) {
+				// handle error response
+			},
+		});
+	}
+
+	render() {
+		return (
+			<div>
+				<header>
+					<Home />
+				</header>
+			</div>
+		);
+	}
+};
 
 export default App;
