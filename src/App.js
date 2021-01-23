@@ -10,6 +10,17 @@ class App extends Component {
 	}
 
 	componentDidMount() {
+		fetch(
+			`http://www.mapquestapi.com/geocoding/v1/address?key=${process.env.REACT_APP_MAP_API_KEY}&location=Washington,DC`
+		)
+			.then((res) => res.json())
+			.then((res) => {
+				console.log(res);
+			})
+			.catch((err) => {
+				console.error(err);
+			});
+
 		let request = require('request');
 		const url = 'https://api.openuv.io/api/v1/uv';
 
@@ -20,10 +31,9 @@ class App extends Component {
 			qs: { lat: '-33.34', lng: '115.342', dt: '2018-01-24T10:50:52.283Z' },
 			headers: {
 				'content-type': 'application/json',
-				'x-access-token': '7469fa7008ca4c729b71acc469c72468',
+				'x-access-token': `${process.env.REACT_APP_UV_API_KEY}`,
 			},
 		};
-
 		request(options, function (error, response, body) {
 			if (error) throw new Error(error);
 			console.log(response.body.result.uv);
@@ -31,6 +41,7 @@ class App extends Component {
 	}
 
 	render() {
+		// console.log(`${process.env.REACT_APP_UV_API_KEY}`);
 		return (
 			<div>
 				<header>
