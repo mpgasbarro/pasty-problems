@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Home from './Home/Home';
+import Userinput from './UserInput/Userinput';
 
 const url =
 	'https://api.openuv.io/api/v1/uv?lat=-33.34&lng=115.342&dt=2018-01-24T10:50:52.283Z';
@@ -13,7 +14,12 @@ class App extends Component {
 			uvIndex: '',
 			lat: '',
 			long: '',
+			inputValue: '',
 		};
+		this.handleInputValue = this.handleInputValue.bind(this);
+	}
+	handleInputValue(val) {
+		this.setState({ inputValue: val });
 	}
 
 	componentDidMount() {
@@ -53,13 +59,15 @@ class App extends Component {
 	}
 
 	render() {
-		console.log(this.state.long);
-		console.log(this.state.uvIndex);
+		console.log(this.state.inputValue);
 		return (
 			<div>
 				<header>
 					<Home />
 				</header>
+				<div>
+					<Userinput handleInput={this.handleInputValue} />
+				</div>
 			</div>
 		);
 	}
