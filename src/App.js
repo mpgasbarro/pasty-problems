@@ -4,7 +4,7 @@ import Home from './Home/Home';
 const url =
 	'https://api.openuv.io/api/v1/uv?lat=-33.34&lng=115.342&dt=2018-01-24T10:50:52.283Z';
 
-// const url1 = `http://www.mapquestapi.com/geocoding/v1/address?key=${process.env.REACT_APP_MAP_API_KEY}&location="Boston,MA`;
+const url1 = `http://www.mapquestapi.com/geocoding/v1/address?key=${process.env.REACT_APP_MAP_API_KEY}&location="Boston,MA`;
 
 class App extends Component {
 	constructor(props) {
@@ -17,6 +17,24 @@ class App extends Component {
 	}
 
 	componentDidMount() {
+		fetch(url1, {
+			method: 'GET',
+			headers: {
+				'content-type': 'application/json',
+			},
+		})
+			.then((res) => res.json())
+			.then((res) => {
+				this.setState({
+					lat: res.results[0].locations[0].latLng.lat,
+					long: res.results[0].locations[0].latLng.lng,
+				});
+				// this.setState({ uvIndex: res });
+			})
+			.catch((err) => {
+				console.error(err);
+			});
+
 		fetch(url, {
 			method: 'GET',
 			headers: {
@@ -35,6 +53,7 @@ class App extends Component {
 	}
 
 	render() {
+		console.log(this.state.long);
 		console.log(this.state.uvIndex);
 		return (
 			<div>
