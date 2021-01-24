@@ -12,7 +12,7 @@ class Userinput extends Component {
 
 	// handle input change event
 	onInputChange(e) {
-		this.setState({ inputVal: e.target.value });
+		this.setState({ ...this.state, inputVal: e.target.value });
 	}
 
 	// handle button click event and pass data in parent

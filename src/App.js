@@ -14,18 +14,17 @@ class App extends Component {
 			uvIndex: '',
 			lat: '',
 			long: '',
-			inputValue: '',
+			inputVal: '',
 		};
-		this.handleInputValue = this.handleInputValue.bind(this);
 	}
-	handleInputValue(val) {
-		this.setState({ ...this.state, inputValue: val });
-	}
+	onChange = (event) => {
+		this.setState({ inputVal: event.target.value });
+	};
 
-	componentDidMount() {
-		let newVal = this.state.inputValue;
+	onSubmit = (event) => {
+		event.preventDefault();
 
-		fetch(`${url1}&location=${newVal}`, {
+		fetch(`${url1}&location=${this.state.inputVal}`, {
 			method: 'GET',
 			headers: {
 				'content-type': 'application/json',
@@ -37,11 +36,30 @@ class App extends Component {
 					lat: res.results[0].locations[0].latLng.lat,
 					long: res.results[0].locations[0].latLng.lng,
 				});
-				// this.setState({ uvIndex: res });
 			})
 			.catch((err) => {
 				console.error(err);
 			});
+	};
+
+	componentDidMount() {
+		// fetch(`${url1}&location=${newVal}`, {
+		// 	method: 'GET',
+		// 	headers: {
+		// 		'content-type': 'application/json',
+		// 	},
+		// })
+		// 	.then((res) => res.json())
+		// 	.then((res) => {
+		// 		this.setState({
+		// 			lat: res.results[0].locations[0].latLng.lat,
+		// 			long: res.results[0].locations[0].latLng.lng,
+		// 		});
+		// 		// this.setState({ uvIndex: res });
+		// 	})
+		// 	.catch((err) => {
+		// 		console.error(err);
+		// 	});
 
 		fetch(url, {
 			method: 'GET',
@@ -61,15 +79,22 @@ class App extends Component {
 	}
 
 	render() {
-		console.log(this.state.lat);
 		console.log(`${url1}&location=${this.state.inputValue}`);
+		console.log(this.state);
 		return (
 			<div>
 				<header>
 					<Home />
 				</header>
 				<div>
-					<Userinput handleInput={(val) => this.handleInputValue(val)} />
+					<form>
+						<input
+							type='text'
+							value={this.state.inputVal}
+							onChange={this.onChange}
+						/>
+						<button onClick={this.onSubmit} />
+					</form>
 				</div>
 			</div>
 		);
