@@ -15,6 +15,7 @@ class App extends Component {
 			lat: '',
 			long: '',
 			inputVal: '',
+			map: null,
 		};
 	}
 	onChange = (event) => {
@@ -35,51 +36,37 @@ class App extends Component {
 				this.setState({
 					lat: res.results[0].locations[0].latLng.lat,
 					long: res.results[0].locations[0].latLng.lng,
+					map: res.results[0].locations[0].mapUrl,
 				});
 			})
 			.catch((err) => {
 				console.error(err);
 			});
+
+		// getUvIndex = () => {
+		// 	const longitude = `${this.state.long}`;
+		// 	const latitude = `${this.state.lat}`;
+
+		// 	const url = `https://api.openuv.io/api/v1/uv?lat=-${latitude}&lng=${longitude}&dt=2018-01-24T10:50:52.283Z`;
+
+		// 	fetch(url, {
+		// 		method: 'GET',
+		// 		headers: {
+		// 			'content-type': 'application/json',
+		// 			'x-access-token': `${process.env.REACT_APP_UV_API_KEY}`,
+		// 		},
+		// 	})
+		// 		.then((res) => res.json())
+		// 		.then((res) => {
+		// 			this.setState({ ...this.state, uvIndex: res });
+		// 		})
+		// 		.catch((err) => {
+		// 			console.error(err);
+		// 		});
+		// };
 	};
 
-	componentDidMount() {
-		// fetch(`${url1}&location=${newVal}`, {
-		// 	method: 'GET',
-		// 	headers: {
-		// 		'content-type': 'application/json',
-		// 	},
-		// })
-		// 	.then((res) => res.json())
-		// 	.then((res) => {
-		// 		this.setState({
-		// 			lat: res.results[0].locations[0].latLng.lat,
-		// 			long: res.results[0].locations[0].latLng.lng,
-		// 		});
-		// 		// this.setState({ uvIndex: res });
-		// 	})
-		// 	.catch((err) => {
-		// 		console.error(err);
-		// 	});
-
-		fetch(url, {
-			method: 'GET',
-			headers: {
-				'content-type': 'application/json',
-				'x-access-token': `${process.env.REACT_APP_UV_API_KEY}`,
-			},
-		})
-			.then((res) => res.json())
-			.then((res) => {
-				console.log(res);
-				this.setState({ ...this.state, uvIndex: res });
-			})
-			.catch((err) => {
-				console.error(err);
-			});
-	}
-
 	render() {
-		console.log(`${url1}&location=${this.state.inputValue}`);
 		console.log(this.state);
 		return (
 			<div>
@@ -95,6 +82,9 @@ class App extends Component {
 						/>
 						<button onClick={this.onSubmit} />
 					</form>
+					{this.state.map && (
+						<img src={this.state.map} alt='picture of the input location' />
+					)}
 				</div>
 			</div>
 		);
