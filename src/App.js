@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import Home from './Home/Home';
 import UvIndex from './UvIndex/UvIndex';
 
-const url =
-	'https://api.openuv.io/api/v1/uv?lat=-33.34&lng=115.342&dt=2018-01-24T10:50:52.283Z';
-
 const url1 = `http://www.mapquestapi.com/geocoding/v1/address?key=${process.env.REACT_APP_MAP_API_KEY}`;
 
 class App extends Component {
@@ -16,6 +13,7 @@ class App extends Component {
 			long: '',
 			inputVal: '',
 			map: null,
+			showUvIndex: false,
 		};
 	}
 	onChange = (event) => {
@@ -37,6 +35,7 @@ class App extends Component {
 					lat: res.results[0].locations[0].latLng.lat,
 					long: res.results[0].locations[0].latLng.lng,
 					map: res.results[0].locations[0].mapUrl,
+					showUvIndex: true,
 				});
 			})
 			.catch((err) => {
@@ -65,7 +64,9 @@ class App extends Component {
 					)}
 				</div>
 				<div>
-					<UvIndex lat={this.state.lat} long={this.state.long} />
+					{this.state.showUvIndex && (
+						<UvIndex lat={this.state.lat} long={this.state.long} />
+					)}
 				</div>
 			</div>
 		);

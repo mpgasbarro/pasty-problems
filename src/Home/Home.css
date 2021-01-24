@@ -1,0 +1,10 @@
+.homeContainer {
+	display: flex;
+	background-color: red;
+	color: yellow;
+	justify-content: center;
+}
+
+.homeContainer h1 {
+	color: blue;
+}

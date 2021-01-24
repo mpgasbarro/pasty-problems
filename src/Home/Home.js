@@ -1,9 +1,10 @@
 import React from 'react';
+import './Home.css';
 
 const Home = () => {
 	return (
-		<div>
-			<h1> Welcome to Pasty Problems </h1>
+		<div className='homeContainer'>
+			<h1 className='homeText'> Welcome to Pasty Problems </h1>
 		</div>
 	);
 };
