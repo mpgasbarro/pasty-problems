@@ -17,6 +17,7 @@ class Userinput extends Component {
 
 	// handle button click event and pass data in parent
 	handleSubmit() {
+		this.setState({});
 		this.props.handleInput(this.state.inputVal);
 	}
 	render() {
