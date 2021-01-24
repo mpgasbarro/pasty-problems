@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Home from './Home/Home';
-import Userinput from './UserInput/Userinput';
+import UvIndex from './UvIndex/UvIndex';
 
 const url =
 	'https://api.openuv.io/api/v1/uv?lat=-33.34&lng=115.342&dt=2018-01-24T10:50:52.283Z';
@@ -42,32 +42,11 @@ class App extends Component {
 			.catch((err) => {
 				console.error(err);
 			});
-
-		// getUvIndex = () => {
-		// 	const longitude = `${this.state.long}`;
-		// 	const latitude = `${this.state.lat}`;
-
-		// 	const url = `https://api.openuv.io/api/v1/uv?lat=-${latitude}&lng=${longitude}&dt=2018-01-24T10:50:52.283Z`;
-
-		// 	fetch(url, {
-		// 		method: 'GET',
-		// 		headers: {
-		// 			'content-type': 'application/json',
-		// 			'x-access-token': `${process.env.REACT_APP_UV_API_KEY}`,
-		// 		},
-		// 	})
-		// 		.then((res) => res.json())
-		// 		.then((res) => {
-		// 			this.setState({ ...this.state, uvIndex: res });
-		// 		})
-		// 		.catch((err) => {
-		// 			console.error(err);
-		// 		});
-		// };
+		// this.handleUv();
 	};
 
 	render() {
-		console.log(this.state);
+		console.log(this.state.long.toString().length);
 		return (
 			<div>
 				<header>
@@ -85,6 +64,9 @@ class App extends Component {
 					{this.state.map && (
 						<img src={this.state.map} alt='picture of the input location' />
 					)}
+				</div>
+				<div>
+					<UvIndex lat={this.state.lat} long={this.state.long} />
 				</div>
 			</div>
 		);
