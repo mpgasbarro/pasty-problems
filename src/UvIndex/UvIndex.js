@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './UvIndex.css';
+// import BurnTime from './BurnTime/BurnTime';
 
 class UVIndex extends Component {
 	constructor(props) {
@@ -16,6 +17,8 @@ class UVIndex extends Component {
 		const long = this.state.long;
 		const url = `https://api.openuv.io/api/v1/uv?lat=${lat}&lng=${long}`;
 
+		console.log('this is the uv url ' + url);
+
 		fetch(url, {
 			method: 'GET',
 			headers: {
@@ -25,7 +28,6 @@ class UVIndex extends Component {
 		})
 			.then((res) => res.json())
 			.then((res) => {
-				console.log(res);
 				this.setState({ uvIndex: res });
 			})
 			.catch((err) => {
@@ -33,19 +35,20 @@ class UVIndex extends Component {
 			});
 	}
 
-	onPress = (event) => {
-		if (event.target.innerText === 'SkinType 1') {
-			this.render(this.state.uvIndex);
-		} else if (event.target.innerText === 'SkinType 2') {
-		} else if (event.target.innerText === 'SkinType 3') {
-		} else if (event.target.innerText === 'SkinType 4') {
-		} else if (event.target.innerText === 'SkinType 5') {
-		} else {
-		}
-	};
+	// onPress = (event) => {
+	// 	if (event.target.innerText === 'SkinType 1') {
+	// 		<BurnTime skinType={this.state.uvIndex.result.safe_exposure_time.st1} />;
+	// 	} else if (event.target.innerText === 'SkinType 2') {
+	// 		<BurnTime skinType={this.state.uvIndex.result.safe_exposure_time.st1} />;
+	// 	} else if (event.target.innerText === 'SkinType 3') {
+	// 	} else if (event.target.innerText === 'SkinType 4') {
+	// 	} else if (event.target.innerText === 'SkinType 5') {
+	// 	} else {
+	// 	}
+	// };
 
 	render() {
-		console.log(this.state.uvIndex);
+		console.log('this is the state of uvIndex' + this.state.uvIndex);
 		return (
 			<div>
 				<h2> What is your skin type? </h2>

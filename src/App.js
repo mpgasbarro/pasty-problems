@@ -8,7 +8,7 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			uvIndex: '',
+			uvInfo: '',
 			lat: '',
 			long: '',
 			inputVal: '',
@@ -32,6 +32,7 @@ class App extends Component {
 			.then((res) => res.json())
 			.then((res) => {
 				this.setState({
+					uvInfo: res,
 					lat: res.results[0].locations[0].latLng.lat,
 					long: res.results[0].locations[0].latLng.lng,
 					map: res.results[0].locations[0].mapUrl,
@@ -65,7 +66,11 @@ class App extends Component {
 				</div>
 				<div>
 					{this.state.showUvIndex && (
-						<UvIndex lat={this.state.lat} long={this.state.long} />
+						<UvIndex
+							uvInfo={this.state.uvInfo}
+							lat={this.state.lat}
+							long={this.state.long}
+						/>
 					)}
 				</div>
 			</div>
