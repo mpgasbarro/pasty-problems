@@ -15,7 +15,7 @@ class UVIndex extends Component {
 	componentDidMount() {
 		const lat = this.state.lat;
 		const long = this.state.long;
-		const url = `https://api.openuv.io/api/v1/uv?lat=${lat}&lng=${long}`;
+		let url = `https://api.openuv.io/api/v1/uv?lat=${lat}&lng=${long}`;
 
 		console.log('this is the uv url ' + url);
 
@@ -48,7 +48,9 @@ class UVIndex extends Component {
 	// };
 
 	render() {
-		console.log('this is the state of uvIndex' + this.state.uvIndex);
+		console.log(this.state.lat);
+		console.log(this.state.long);
+		console.log(this.state.uvIndex);
 		return (
 			<div>
 				<h2> What is your skin type? </h2>

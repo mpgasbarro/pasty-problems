@@ -8,12 +8,12 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			uvInfo: '',
 			lat: '',
 			long: '',
 			inputVal: '',
 			map: null,
 			showUvIndex: false,
+
 		};
 	}
 	onChange = (event) => {
@@ -22,6 +22,7 @@ class App extends Component {
 
 	onSubmit = (event) => {
 		event.preventDefault();
+		
 
 		fetch(`${url1}&location=${this.state.inputVal}`, {
 			method: 'GET',
@@ -32,7 +33,6 @@ class App extends Component {
 			.then((res) => res.json())
 			.then((res) => {
 				this.setState({
-					uvInfo: res,
 					lat: res.results[0].locations[0].latLng.lat,
 					long: res.results[0].locations[0].latLng.lng,
 					map: res.results[0].locations[0].mapUrl,
@@ -46,6 +46,8 @@ class App extends Component {
 	};
 
 	render() {
+		console.log("this in input val " + this.state.inputVal);
+		console.log(`${url1}&location=${this.state.inputVal}`);
 		return (
 			<div>
 				<header>
@@ -66,11 +68,7 @@ class App extends Component {
 				</div>
 				<div>
 					{this.state.showUvIndex && (
-						<UvIndex
-							uvInfo={this.state.uvInfo}
-							lat={this.state.lat}
-							long={this.state.long}
-						/>
+						<UvIndex  lat={this.state.lat} long={this.state.long}  />
 					)}
 				</div>
 			</div>
