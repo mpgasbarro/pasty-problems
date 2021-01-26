@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import Home from './Home/Home';
 import UvIndex from './UvIndex/UvIndex';
+import About from './About/About';
 
 const url1 = `http://www.mapquestapi.com/geocoding/v1/address?key=${process.env.REACT_APP_MAP_API_KEY}`;
 
@@ -13,8 +14,14 @@ class App extends Component {
 			inputVal: '',
 			map: null,
 			showUvIndex: false,
+			showModal1: false,
 		};
 	}
+
+	showModal = (e) => {
+		this.setState({ showModal1: !this.state.showModal1 });
+	};
+
 	onChange = (event) => {
 		this.setState({ inputVal: event.target.value });
 	};
@@ -43,12 +50,20 @@ class App extends Component {
 	};
 
 	render() {
-		console.log('this in input val ' + this.state.inputVal);
-		console.log(`${url1}&location=${this.state.inputVal}`);
 		return (
 			<div>
 				<header>
 					<Home />
+					<button
+						onClick={(e) => {
+							this.showModal(e);
+						}}>
+						show Modal{' '}
+					</button>
+					<About onClose={this.showModal} showModal={this.state.showModal1}>
+						{' '}
+						Message in Modal{' '}
+					</About>
 				</header>
 				<div>
 					<form>
