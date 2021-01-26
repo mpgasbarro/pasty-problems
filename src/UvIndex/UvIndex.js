@@ -14,22 +14,13 @@ class UVIndex extends Component {
 			showBurnTime4: false,
 			showBurnTime5: false,
 			showBurnTime6: false,
-			timeTillBurn: 0,
 		};
 	}
-
-	solveTimeTillBurn = (uv) => {
-		let answer1 = 200 * 2.5;
-		let answer2 = 3 * uv;
-		console.log(answer2);
-	};
 
 	componentDidMount() {
 		const lat = this.state.lat;
 		const long = this.state.long;
 		let url = `https://api.openuv.io/api/v1/uv?lat=${lat}&lng=${long}`;
-
-		console.log('this is the uv url ' + url);
 
 		fetch(url, {
 			method: 'GET',
@@ -51,7 +42,6 @@ class UVIndex extends Component {
 		let uv = this.state.uvIndex.result.uv;
 		if (event.target.innerText === 'SkinType 1') {
 			this.setState({ showBurnTime1: true });
-			this.solveTimeTillBurn(this.state.timeTillBurn);
 		} else if (event.target.innerText === 'SkinType 2') {
 			this.setState({ showBurnTime2: true });
 		} else if (event.target.innerText === 'SkinType 3') {
@@ -60,14 +50,12 @@ class UVIndex extends Component {
 			this.setState({ showBurnTime4: true });
 		} else if (event.target.innerText === 'SkinType 5') {
 			this.setState({ showBurnTime5: true });
-		} else {
+		} else if (event.target.innerText === 'SkinType 6') {
 			this.setState({ showBurnTime6: true });
 		}
 	};
 
 	render() {
-		console.log(this.state.uvIndex.result);
-
 		return (
 			<div>
 				<h2> What is your skin type? </h2>
@@ -84,33 +72,83 @@ class UVIndex extends Component {
 					SkinType 2{' '}
 				</button>
 				<h5>Fair skin, white; light eyes; light hair.</h5>
-				<button className='skinType3'> SkinType 3 </button>
+				<button className='skinType3' onClick={this.onPress}>
+					{' '}
+					SkinType 3{' '}
+				</button>
 				<h5>
 					{' '}
 					Fair skin, cream white; any eye or hair color (very common skin type){' '}
 				</h5>
-				<button className='skinType4'> SkinType 4 </button>
+				<button className='skinType4' onClick={this.onPress}>
+					{' '}
+					SkinType 4{' '}
+				</button>
 				<h5>
 					{' '}
 					Olive skin, typical Mediterranean Caucasian skin; dark brown hair;
 					medium to heavy pigmentation{' '}
 				</h5>
-				<button className='skinType5'> SkinType 5 </button>
+				<button className='skinType5' onClick={this.onPress}>
+					{' '}
+					SkinType 5{' '}
+				</button>
 				<h5>
 					Brown skin, typical Middle Eastern skin; dark hair; rarely sun
 					sensitive
 				</h5>
-				<button className='skinType5'> SkinType 6 </button>
+				<button className='skinType6' onClick={this.onPress}>
+					{' '}
+					SkinType 6{' '}
+				</button>
 				<h5> Black skin; rarely sun sensitive</h5>
 				{this.state.showBurnTime1 && (
 					<h2>
 						{' '}
 						The UV Level is currently at {this.state.uvIndex.result.uv}, meaning
-						as a fair skinned individual, you will burn in
+						as a VERY fair skinned individual, you will burn in
 						{this.state.uvIndex.result.safe_exposure_time.st1} minutes)
 					</h2>
 				)}
-				{this.state.showBurnTime2 && <h6> your burntime is 200% </h6>}
+				{this.state.showBurnTime2 && (
+					<h3>
+						{' '}
+						The UV Level is currently at {this.state.uvIndex.result.uv}, meaning
+						as a fair skinned individual, you will burn in
+						{this.state.uvIndex.result.safe_exposure_time.st2} minutes){' '}
+					</h3>
+				)}
+				{this.state.showBurnTime3 && (
+					<h3>
+						{' '}
+						The UV Level is currently at {this.state.uvIndex.result.uv}, meaning
+						as a creamed skinned individual, you will burn in
+						{this.state.uvIndex.result.safe_exposure_time.st3} minutes){' '}
+					</h3>
+				)}
+				{this.state.showBurnTime4 && (
+					<h6>
+						The UV Level is currently at {this.state.uvIndex.result.uv}, meaning
+						as an olive skinned individual, you will burn in
+						{this.state.uvIndex.result.safe_exposure_time.st4} minutes)
+					</h6>
+				)}
+				{this.state.showBurnTime5 && (
+					<h6>
+						{' '}
+						The UV Level is currently at {this.state.uvIndex.result.uv}, meaning
+						as an brown skinned individual, you will burn in
+						{this.state.uvIndex.result.safe_exposure_time.st5} minutes){' '}
+					</h6>
+				)}
+				{this.state.showBurnTime6 && (
+					<h6>
+						{' '}
+						The UV Level is currently at {this.state.uvIndex.result.uv}, meaning
+						as an black skinned individual, you will burn in
+						{this.state.uvIndex.result.safe_exposure_time.st6} minutes){' '}
+					</h6>
+				)}
 			</div>
 		);
 	}
