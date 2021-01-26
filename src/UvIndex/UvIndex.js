@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './UvIndex.css';
-// import BurnTime from './BurnTime/BurnTime';
 
 class UVIndex extends Component {
 	constructor(props) {
@@ -9,8 +8,21 @@ class UVIndex extends Component {
 			uvIndex: '',
 			lat: this.props.lat,
 			long: this.props.long,
+			showBurnTime1: false,
+			showBurnTime2: false,
+			showBurnTime3: false,
+			showBurnTime4: false,
+			showBurnTime5: false,
+			showBurnTime6: false,
+			timeTillBurn: 0,
 		};
 	}
+
+	solveTimeTillBurn = (uv) => {
+		let answer1 = 200 * 2.5;
+		let answer2 = 3 * uv;
+		console.log(answer2);
+	};
 
 	componentDidMount() {
 		const lat = this.state.lat;
@@ -35,22 +47,27 @@ class UVIndex extends Component {
 			});
 	}
 
-	// onPress = (event) => {
-	// 	if (event.target.innerText === 'SkinType 1') {
-	// 		<BurnTime skinType={this.state.uvIndex.result.safe_exposure_time.st1} />;
-	// 	} else if (event.target.innerText === 'SkinType 2') {
-	// 		<BurnTime skinType={this.state.uvIndex.result.safe_exposure_time.st1} />;
-	// 	} else if (event.target.innerText === 'SkinType 3') {
-	// 	} else if (event.target.innerText === 'SkinType 4') {
-	// 	} else if (event.target.innerText === 'SkinType 5') {
-	// 	} else {
-	// 	}
-	// };
+	onPress = (event) => {
+		let uv = this.state.uvIndex.result.uv;
+		if (event.target.innerText === 'SkinType 1') {
+			this.setState({ showBurnTime1: true });
+			this.solveTimeTillBurn(this.state.timeTillBurn);
+		} else if (event.target.innerText === 'SkinType 2') {
+			this.setState({ showBurnTime2: true });
+		} else if (event.target.innerText === 'SkinType 3') {
+			this.setState({ showBurnTime3: true });
+		} else if (event.target.innerText === 'SkinType 4') {
+			this.setState({ showBurnTime4: true });
+		} else if (event.target.innerText === 'SkinType 5') {
+			this.setState({ showBurnTime5: true });
+		} else {
+			this.setState({ showBurnTime6: true });
+		}
+	};
 
 	render() {
-		console.log(this.state.lat);
-		console.log(this.state.long);
-		console.log(this.state.uvIndex);
+		console.log(this.state.uvIndex.result);
+
 		return (
 			<div>
 				<h2> What is your skin type? </h2>
@@ -85,6 +102,15 @@ class UVIndex extends Component {
 				</h5>
 				<button className='skinType5'> SkinType 6 </button>
 				<h5> Black skin; rarely sun sensitive</h5>
+				{this.state.showBurnTime1 && (
+					<h2>
+						{' '}
+						The UV Level is currently at {this.state.uvIndex.result.uv}, meaning
+						as a fair skinned individual, you will burn in
+						{this.state.uvIndex.result.safe_exposure_time.st1} minutes)
+					</h2>
+				)}
+				{this.state.showBurnTime2 && <h6> your burntime is 200% </h6>}
 			</div>
 		);
 	}

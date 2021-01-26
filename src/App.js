@@ -13,7 +13,6 @@ class App extends Component {
 			inputVal: '',
 			map: null,
 			showUvIndex: false,
-
 		};
 	}
 	onChange = (event) => {
@@ -22,7 +21,6 @@ class App extends Component {
 
 	onSubmit = (event) => {
 		event.preventDefault();
-		
 
 		fetch(`${url1}&location=${this.state.inputVal}`, {
 			method: 'GET',
@@ -42,11 +40,10 @@ class App extends Component {
 			.catch((err) => {
 				console.error(err);
 			});
-		// this.handleUv();
 	};
 
 	render() {
-		console.log("this in input val " + this.state.inputVal);
+		console.log('this in input val ' + this.state.inputVal);
 		console.log(`${url1}&location=${this.state.inputVal}`);
 		return (
 			<div>
@@ -68,9 +65,10 @@ class App extends Component {
 				</div>
 				<div>
 					{this.state.showUvIndex && (
-						<UvIndex  lat={this.state.lat} long={this.state.long}  />
+						<UvIndex lat={this.state.lat} long={this.state.long} />
 					)}
 				</div>
+				<div></div>
 			</div>
 		);
 	}
