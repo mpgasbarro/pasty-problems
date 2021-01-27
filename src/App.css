@@ -5,11 +5,12 @@
 	background-image: url('https://i.pinimg.com/originals/59/f9/b2/59f9b2ccf585d1206c6c6768fbdedfe6.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
-	width: 100%;
 	position: absolute;
+	width: 100vw;
 	top: 0;
 	left: 0;
-	padding-bottom: 600px;
+	padding-bottom: 1800px;
+	height: 100vh;
 }
 
 .headerContainer {
