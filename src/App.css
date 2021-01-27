@@ -1,38 +1,54 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento&display=swap');
+
+.mainContainer {
+	background-image: url('https://i.pinimg.com/originals/59/f9/b2/59f9b2ccf585d1206c6c6768fbdedfe6.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding-bottom: 600px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.headerContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: 'Satisfy', cursive;
+	color: rgb(0, 53, 97);
+	/* padding-top: 300px; */
+}
+.aboutButton {
+	border-radius: 8px;
+	height: 30px;
+	width: 80px;
+	background-color: rgb(0, 53, 97);
+	color: #fff;
+	font-family: 'Satisfy', cursive;
+}
+#modalFont {
+	font-family: 'Quattrocento', serif;
+	color: rgb(0, 53, 97);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.inputContainer {
+	display: flex;
+	justify-content: center;
+	padding-top: 500px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.locationContainer {
+	display: flex;
+	justify-content: center;
 }
 
-.App-link {
-  color: #61dafb;
+#locationPic {
+	padding-top: 100px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.locationContainer h4 {
+	font-family: 'Quattrocento', serif;
+	color: rgb(0, 53, 97);
 }
