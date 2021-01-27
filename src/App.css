@@ -1,8 +1,27 @@
-.App {
-	text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento&display=swap');
 
-.modalBackground {
-	opacity: 0;
-	pointer-events: none;
+.headerContainer {
+	display: flex;
+	background-image: url('https://cdn.abcotvs.com/dip/images/2519755_101117-sunrise.jpg');
+	color: yellow;
+	flex-direction: column;
+	align-items: center;
+	background-size: cover;
+	padding-bottom: 600px;
+	font-family: 'Satisfy', cursive;
+	color: rgb(31, 136, 221);
+	/* padding-top: 300px; */
+}
+.aboutButton {
+	border-radius: 8px;
+	height: 30px;
+	width: 80px;
+	background-color: rgb(31, 136, 221);
+	color: #fff;
+	font-family: 'Satisfy', cursive;
+}
+#modalFont {
+	font-family: 'Quattrocento', serif;
+	color: rgb(31, 136, 221);
 }

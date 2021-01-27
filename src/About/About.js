@@ -11,7 +11,7 @@ export default class About extends React.Component {
 		}
 		return (
 			<div className='modal' id='modal'>
-				<h2> Modal Window</h2>
+				<h2> Welcome to Pasty Problems!</h2>
 				<div class='content'>{this.props.children}</div>
 				<div class='actions'>
 					<div>

@@ -6,7 +6,7 @@ const Home = () => {
 	return (
 		<div className='homeContainer'>
 			<header>
-				<h1 className='homeText'> Welcome to Pasty Problems </h1>
+				<h1 className='homeText'> Pasty Problems </h1>
 			</header>
 		</div>
 	);
