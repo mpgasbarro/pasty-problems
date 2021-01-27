@@ -39,19 +39,54 @@ class UVIndex extends Component {
 	}
 
 	onPress = (event) => {
-		let uv = this.state.uvIndex.result.uv;
 		if (event.target.innerText === 'SkinType 1') {
-			this.setState({ showBurnTime1: true });
+			setTimeout(
+				function () {
+					//Start the timer
+					this.setState({ showBurnTime1: true }); //After 1 second, set render to true
+				}.bind(this),
+				2000
+			);
 		} else if (event.target.innerText === 'SkinType 2') {
-			this.setState({ showBurnTime2: true });
+			setTimeout(
+				function () {
+					//Start the timer
+					this.setState({ showBurnTime2: true }); //After 1 second, set render to true
+				}.bind(this),
+				2000
+			);
 		} else if (event.target.innerText === 'SkinType 3') {
-			this.setState({ showBurnTime3: true });
+			setTimeout(
+				function () {
+					//Start the timer
+					this.setState({ showBurnTime3: true }); //After 1 second, set render to true
+				}.bind(this),
+				2000
+			);
 		} else if (event.target.innerText === 'SkinType 4') {
-			this.setState({ showBurnTime4: true });
+			setTimeout(
+				function () {
+					//Start the timer
+					this.setState({ showBurnTime4: true }); //After 1 second, set render to true
+				}.bind(this),
+				2000
+			);
 		} else if (event.target.innerText === 'SkinType 5') {
-			this.setState({ showBurnTime5: true });
+			setTimeout(
+				function () {
+					//Start the timer
+					this.setState({ showBurnTime5: true }); //After 1 second, set render to true
+				}.bind(this),
+				2000
+			);
 		} else if (event.target.innerText === 'SkinType 6') {
-			this.setState({ showBurnTime6: true });
+			setTimeout(
+				function () {
+					//Start the timer
+					this.setState({ showBurnTime6: true }); //After 1 second, set render to true
+				}.bind(this),
+				2000
+			);
 		}
 	};
 
@@ -122,51 +157,51 @@ class UVIndex extends Component {
 					</div>
 				</div>
 				{this.state.showBurnTime1 && (
-					<h2>
+					<h3 className='uvInfo'>
 						{' '}
 						The UV Level is currently at {this.state.uvIndex.result.uv}, meaning
-						as a VERY fair skinned individual, you will burn in
-						{this.state.uvIndex.result.safe_exposure_time.st1} minutes)
-					</h2>
+						as a VERY fair skinned individual, you will burn in{' '}
+						{this.state.uvIndex.result.safe_exposure_time.st1} minutes
+					</h3>
 				)}
 				{this.state.showBurnTime2 && (
-					<h3>
+					<h3 className='uvInfo'>
 						{' '}
 						The UV Level is currently at {this.state.uvIndex.result.uv}, meaning
-						as a fair skinned individual, you will burn in
-						{this.state.uvIndex.result.safe_exposure_time.st2} minutes){' '}
+						as a fair skinned individual, you will burn in{' '}
+						{this.state.uvIndex.result.safe_exposure_time.st2} minutes{' '}
 					</h3>
 				)}
 				{this.state.showBurnTime3 && (
-					<h3>
+					<h3 className='uvInfo'>
 						{' '}
 						The UV Level is currently at {this.state.uvIndex.result.uv}, meaning
-						as a creamed skinned individual, you will burn in
-						{this.state.uvIndex.result.safe_exposure_time.st3} minutes){' '}
+						as a creamed skinned individual, you will burn in{' '}
+						{this.state.uvIndex.result.safe_exposure_time.st3} minutes{' '}
 					</h3>
 				)}
 				{this.state.showBurnTime4 && (
-					<h6>
+					<h3 className='uvInfo'>
 						The UV Level is currently at {this.state.uvIndex.result.uv}, meaning
-						as an olive skinned individual, you will burn in
-						{this.state.uvIndex.result.safe_exposure_time.st4} minutes)
-					</h6>
+						as an olive skinned individual, you will burn in{' '}
+						{this.state.uvIndex.result.safe_exposure_time.st4} minutes
+					</h3>
 				)}
 				{this.state.showBurnTime5 && (
-					<h6>
+					<h3 className='uvInfo'>
 						{' '}
 						The UV Level is currently at {this.state.uvIndex.result.uv}, meaning
-						as an brown skinned individual, you will burn in
-						{this.state.uvIndex.result.safe_exposure_time.st5} minutes){' '}
-					</h6>
+						as an brown skinned individual, you will burn in{' '}
+						{this.state.uvIndex.result.safe_exposure_time.st5} minutes{' '}
+					</h3>
 				)}
 				{this.state.showBurnTime6 && (
-					<h6>
+					<h3 className='uvInfo'>
 						{' '}
 						The UV Level is currently at {this.state.uvIndex.result.uv}, meaning
-						as an black skinned individual, you will burn in
-						{this.state.uvIndex.result.safe_exposure_time.st6} minutes){' '}
-					</h6>
+						as an black skinned individual, you will burn in{' '}
+						{this.state.uvIndex.result.safe_exposure_time.st6} minutes{' '}
+					</h3>
 				)}
 			</div>
 		);
