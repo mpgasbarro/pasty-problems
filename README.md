@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# Project - Pasty Problems
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Pasty Problems is a helpful tool for knowing the Ultraviolet(UV) index for your particular location. You provide your location and skin type and pasty problems will let you know how long you have until you start to burn. Did you know that skin cancer is the most common type of cancer in the United States? It is also one of the most preventable forms of the disease. Ultraviolet (UV) radiation from the sun is the main cause of skin cancer, so one of the best ways to prevent skin cancer is to protect your skin from sun exposure with the use of sunscreen as well as being informed!
 
-In the project directory, you can run:
+## Brief Example 1
 
-### `npm start`
+![Screen Shot 2021-01-27 at 8 03 15 AM](https://user-images.githubusercontent.com/67292452/105994921-42ea7080-6076-11eb-9960-13285c38e5f7.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Brief Example 2
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![Screen Shot 2021-01-27 at 8 03 31 AM](https://user-images.githubusercontent.com/67292452/105994892-3a923580-6076-11eb-9578-90bdcc54bbb5.png)
 
-### `npm test`
+## Brief Example 3
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Screen Shot 2021-01-27 at 8 03 24 AM](https://user-images.githubusercontent.com/67292452/105994861-3108cd80-6076-11eb-86e2-39f340ff61c5.png)
 
-### `npm run build`
+## MVP - Goals
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- The user will be able to input their location, anywhere across the world, including specific addresses.
+- The user will then be able to pick which skin type best fits them or a friend.
+- The user will know exactly how many minutes they will be able to stay in the sun, before being burned.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Stretch - Goals
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Provide more information as to what the UV index number means.
+- Calculate the time until they burn, even if they are wearing sunscreen.
+- Have a button where the user can listen to the song SunScreen...(wish I was kidding)
+- Refactor code, to enable React-Scroll-To.
 
-### `npm run eject`
+## List of Technologies
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Javascript
+- HTML5
+- CSS3
+- React
+- Git-hub Pages.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contribution Guidelines
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- If you wish to make edits/contributions to this application, you can find instructions for forking here. https://help.github.com/en/github/getting-started-with-github/fork-a-repo
