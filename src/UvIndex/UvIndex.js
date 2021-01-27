@@ -57,51 +57,70 @@ class UVIndex extends Component {
 
 	render() {
 		return (
-			<div>
-				<h2> What is your skin type? </h2>
-				<button className='skinType1' onClick={this.onPress}>
-					{' '}
-					SkinType 1{' '}
-				</button>
-				<h5>
-					Very fair skin, white; red or blond hair; light-colored eyes; freckles
-					likely
-				</h5>
-				<button className='skinType2' onClick={this.onPress}>
-					{' '}
-					SkinType 2{' '}
-				</button>
-				<h5>Fair skin, white; light eyes; light hair.</h5>
-				<button className='skinType3' onClick={this.onPress}>
-					{' '}
-					SkinType 3{' '}
-				</button>
-				<h5>
-					{' '}
-					Fair skin, cream white; any eye or hair color (very common skin type){' '}
-				</h5>
-				<button className='skinType4' onClick={this.onPress}>
-					{' '}
-					SkinType 4{' '}
-				</button>
-				<h5>
-					{' '}
-					Olive skin, typical Mediterranean Caucasian skin; dark brown hair;
-					medium to heavy pigmentation{' '}
-				</h5>
-				<button className='skinType5' onClick={this.onPress}>
-					{' '}
-					SkinType 5{' '}
-				</button>
-				<h5>
-					Brown skin, typical Middle Eastern skin; dark hair; rarely sun
-					sensitive
-				</h5>
-				<button className='skinType6' onClick={this.onPress}>
-					{' '}
-					SkinType 6{' '}
-				</button>
-				<h5> Black skin; rarely sun sensitive</h5>
+			<div className='skinTypeContainer'>
+				<h2 id='skinQuestion'> What is your skin type? </h2>
+				<div className='row'>
+					<div id='skinBox1'>
+						<button className='skinType' id='skinType1' onClick={this.onPress}>
+							{' '}
+							SkinType 1{' '}
+						</button>
+						<h6>
+							Very fair skin, white; red or blond hair; light-colored eyes;
+							freckles likely
+						</h6>
+					</div>
+					<div id='skinBox2'>
+						<button className='skinType' id='skinType2' onClick={this.onPress}>
+							{' '}
+							SkinType 2{' '}
+						</button>
+						<h6>Fair skin, white; light eyes; light hair.</h6>
+					</div>
+				</div>
+				<div className='row'>
+					<div id='skinBox3'>
+						<button className='skinType' id='skinType3' onClick={this.onPress}>
+							{' '}
+							SkinType 3{' '}
+						</button>
+						<h6>
+							{' '}
+							Fair skin, cream white; any eye or hair color (very common skin
+							type){' '}
+						</h6>
+					</div>
+					<div id='skinBox4'>
+						<button className='skinType' id='skinType4' onClick={this.onPress}>
+							{' '}
+							SkinType 4{' '}
+						</button>
+						<h6>
+							{' '}
+							Olive skin, typical Mediterranean Caucasian skin; dark brown hair;
+							medium to heavy pigmentation{' '}
+						</h6>
+					</div>
+				</div>
+				<div className='row'>
+					<div id='skinBox5'>
+						<button className='skinType' id='skinType5' onClick={this.onPress}>
+							{' '}
+							SkinType 5{' '}
+						</button>
+						<h6>
+							Brown skin, typical Middle Eastern skin; dark hair; rarely sun
+							sensitive
+						</h6>
+					</div>
+					<div id='skinBox6'>
+						<button className='skinType' id='skinType6' onClick={this.onPress}>
+							{' '}
+							SkinType 6{' '}
+						</button>
+						<h6> Black skin; rarely sun sensitive</h6>
+					</div>
+				</div>
 				{this.state.showBurnTime1 && (
 					<h2>
 						{' '}

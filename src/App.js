@@ -42,8 +42,15 @@ class App extends Component {
 					lat: res.results[0].locations[0].latLng.lat,
 					long: res.results[0].locations[0].latLng.lng,
 					map: res.results[0].locations[0].mapUrl,
-					showUvIndex: true,
+					// showUvIndex: true,
 				});
+				setTimeout(
+					function () {
+						//Start the timer
+						this.setState({ showUvIndex: true }); //After 1 second, set render to true
+					}.bind(this),
+					3000
+				);
 			})
 			.catch((err) => {
 				console.error(err);
@@ -52,7 +59,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className='mainContainer'>
 				<header className='headerContainer'>
 					<Home className='homeClass' />
 
@@ -74,16 +81,27 @@ class App extends Component {
 					</div>
 				</header>
 				<div>
-					<form>
+					<form className='inputContainer'>
 						<input
 							type='text'
 							value={this.state.inputVal}
+							placeHolder='Your Location'
+							id='inputBox'
 							onChange={this.onChange}
 						/>
-						<button onClick={this.onSubmit} />
+						<button className='aboutButton' onClick={this.onSubmit}>
+							{' '}
+							enter{' '}
+						</button>
 					</form>
 					{this.state.map && (
-						<img src={this.state.map} alt='picture of the input location' />
+						<div className='locationContainer'>
+							<img
+								id='locationPic'
+								src={this.state.map}
+								alt='picture of the input location'
+							/>
+						</div>
 					)}
 				</div>
 				<div>
