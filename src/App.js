@@ -4,7 +4,7 @@ import UvIndex from './UvIndex/UvIndex';
 import About from './About/About';
 import './App.css';
 
-const url1 = `http://www.mapquestapi.com/geocoding/v1/address?key=${process.env.REACT_APP_MAP_API_KEY}`;
+const url1 = `https://www.mapquestapi.com/geocoding/v1/address?key=${process.env.REACT_APP_MAP_API_KEY}`;
 
 class App extends Component {
 	constructor(props) {
@@ -42,14 +42,13 @@ class App extends Component {
 					lat: res.results[0].locations[0].latLng.lat,
 					long: res.results[0].locations[0].latLng.lng,
 					map: res.results[0].locations[0].mapUrl,
-					// showUvIndex: true,
 				});
 				setTimeout(
 					function () {
 						//Start the timer
-						this.setState({ showUvIndex: true }); //After 1 second, set render to true
+						this.setState({ showUvIndex: true }); //After 2 second, set render to true
 					}.bind(this),
-					3000
+					2000
 				);
 			})
 			.catch((err) => {
@@ -91,7 +90,7 @@ class App extends Component {
 						/>
 						<button className='aboutButton' onClick={this.onSubmit}>
 							{' '}
-							enter{' '}
+							Enter{' '}
 						</button>
 					</form>
 					{this.state.map && (
