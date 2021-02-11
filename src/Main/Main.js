@@ -43,25 +43,12 @@ class Main extends Component {
 					lat: res.results[0].locations[0].latLng.lat,
 					long: res.results[0].locations[0].latLng.lng,
 					map: res.results[0].locations[0].mapUrl,
+					showUvIndex: true,
 				});
-				setTimeout(
-					function () {
-						//Start the timer
-						this.setState({ showUvIndex: true }); //After 2 second, set render to true
-					}.bind(this),
-					2000
-				);
 			})
 			.catch((err) => {
 				alert.alert(err);
 			});
-
-		if (this.state.UvIndex) {
-			this.myDivToFocus.current.scrollIntoView({
-				behavior: 'smooth',
-				block: 'nearest',
-			});
-		}
 	};
 
 	render() {
@@ -96,7 +83,7 @@ class Main extends Component {
 							id='inputBox'
 							onChange={this.onChange}
 						/>
-						<Link to='uvSkinType' spy={true} smooth={true}>
+						<Link to='skinQuestion' spy={true} smooth={true}>
 							<button className='aboutButton' onClick={this.onSubmit}>
 								{' '}
 								Enter{' '}
