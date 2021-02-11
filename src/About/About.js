@@ -1,5 +1,6 @@
 import React from 'react';
 import './About.css';
+import { Link } from 'react-scroll';
 
 export default class About extends React.Component {
 	onClose = (e) => {
@@ -15,9 +16,11 @@ export default class About extends React.Component {
 				<div class='content'>{this.props.children}</div>
 				<div class='actions'>
 					<div>
-						<button class='toggle-button' onClick={this.onClose}>
-							close
-						</button>
+						<Link to='inputBox' spy={true} smooth={true}>
+							<button class='toggle-button' onClick={this.onClose}>
+								close
+							</button>
+						</Link>
 					</div>
 				</div>
 			</div>
